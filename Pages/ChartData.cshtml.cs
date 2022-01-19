@@ -47,7 +47,10 @@ namespace week3_lab.Pages {
         }
 
         private Student[] GetStudentsData() {
-            using (var streamReader = new StreamReader(@"./students.csv")) 
+            string path = Directory.GetCurrentDirectory();
+            string combined = Path.Combine(path, "students.csv");
+            // "./students.csv"
+            using (var streamReader = new StreamReader(@$"{combined}")) 
             {
                 using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
                 {
